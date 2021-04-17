@@ -21,17 +21,18 @@ class MealsApi(Resource):
     >>> api = Api(app=app)
     >>> api.add_resource(MealsApi, '/meal/')
     """
-    @jwt_required
+    @jwt_required()
     def get(self) -> Response:
         """
         GET response method for all documents in meal collection.
         JSON Web Token is required.
         :return: JSON object
         """
+                
         output = Meals.objects()
         return jsonify({'result': output})
 
-    @jwt_required
+    @jwt_required()
     def post(self) -> Response:
         """
         POST response method for creating meal.
@@ -63,7 +64,7 @@ class MealApi(Resource):
     >>> api = Api(app=app)
     >>> api.add_resource(MealApi, '/meal/<meal_id>')
     """
-    @jwt_required
+    @jwt_required()
     def get(self, meal_id: str) -> Response:
         """
         GET response method for single documents in meal collection.
@@ -72,7 +73,7 @@ class MealApi(Resource):
         output = Meals.objects.get(id=meal_id)
         return jsonify({'result': output})
 
-    @jwt_required
+    @jwt_required()
     def put(self, meal_id: str) -> Response:
         """
         PUT response method for updating a meal.
@@ -84,7 +85,7 @@ class MealApi(Resource):
         put_user = Meals.objects(id=meal_id).update(**data)
         return jsonify({'result': put_user})
 
-    @jwt_required
+    @jwt_required()
     def delete(self, user_id: str) -> Response:
         """
         DELETE response method for deleting single meal.
