@@ -1,1 +1,1 @@
-web: gunicorn app.app:get_flask_app
+web: gunicorn app:get_flask_app
