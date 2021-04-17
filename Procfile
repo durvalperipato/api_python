@@ -1,1 +1,1 @@
-web: gunicorn app:get_flask
+web: gunicorn app:get_flask_app()heroku
