@@ -13,10 +13,10 @@ import os
 # default mongodb configuration
 default_config = {'MONGODB_SETTINGS': {
                     'db': 'test_db',
-                    'host': 'localhost',
+                    #'host': 'localhost',
                     'port': 27017,
                     'username': 'admin',
-                    'password': 'password',
+                    'password': 'RyrHrXJ3gXtqzJzr',
                     'authentication_source': 'admin'},
                   'JWT_SECRET_KEY': 'changeThisKeyFirst'}
 
@@ -38,7 +38,6 @@ def get_flask_app(config: dict = None) -> app.Flask:
     
     # load config variables
     if 'MONGODB_URI' in os.environ:
-        print('TESTE')
         flask_app.config['MONGODB_SETTINGS'] = {'host': os.environ['MONGODB_URI'],
                                                 'retryWrites': False}
     if 'JWT_SECRET_KEY' in os.environ:
