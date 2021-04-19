@@ -27,3 +27,9 @@ def invalid_route() -> Response:
     resp = jsonify({'result': output})
     resp.status_code = 404
     return resp
+
+def user_already_exist() -> Response:
+    output = {"msg":"User's already exist."}
+    resp = jsonify({'result':output})
+    resp.status_code = 403
+    return resp

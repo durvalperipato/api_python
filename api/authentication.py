@@ -5,7 +5,7 @@ from flask_jwt_extended import create_access_token, create_refresh_token
 
 # project resources
 from models.users import Users
-from api.errors import unauthorized
+from api.errors import unauthorized, user_already_exist
 
 # external packages
 import datetime
@@ -32,10 +32,14 @@ class SignUpApi(Resource):
         """
         data = request.get_json()
         post_user = Users(**data)
-        post_user.save()
-        output = {'id': str(post_user.id)}
-        return jsonify({'result': output})
+        try:
+            post_user.save()
+            output = {'id': str(post_user.id)}
+            return jsonify({'result': output})
 
+        except:
+            return user_already_exist()
+        
 
 class LoginApi(Resource):
     """

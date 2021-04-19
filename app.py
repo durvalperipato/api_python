@@ -13,10 +13,11 @@ import os
 # default mongodb configuration
 default_config = {'MONGODB_SETTINGS': {
                     'db': 'test_db',
-                    #'host': 'localhost',
+                    'host': 'localhost',
                     'port': 27017,
                     'username': 'admin',
-                    'password': 'RyrHrXJ3gXtqzJzr',
+                    'password':'password',
+                    #'password': 'RyrHrXJ3gXtqzJzr',
                     'authentication_source': 'admin'},
                   'JWT_SECRET_KEY': 'changeThisKeyFirst'}
 
